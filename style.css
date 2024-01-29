@@ -63,6 +63,7 @@ body {
   box-sizing: border-box;
   padding: 20px;
   color: #000;
+  margin-top: -20px;
 }
 
 .untoldcoding .untoldcoding-details h2 {
