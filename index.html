@@ -27,5 +27,50 @@
         </div>
       </div>
     </div>
+
+    <div class="audio">
+      <div id="player"></div>
+  </div>
+
+  <script>
+    // Replace 'VIDEO_ID' with the actual YouTube video ID
+    var videoId = 'UWaw-WEI31Q';
+
+    // Create a new YouTube player
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '360',
+            width: '640',
+            videoId: videoId,
+            playerVars: {
+                autoplay: 1,         // Auto-play the video
+                controls: 0,         // Hide video controls
+                showinfo: 0,         // Hide video information
+                modestbranding: 1,   // Remove YouTube logo
+                loop: 1,             // Loop the video
+                playlist: videoId,   // Required for loop
+                enablejsapi: 1,      // Enable the JavaScript API
+                iv_load_policy: 3,   // Disable annotations
+                playsinline: 1,      // Play the video inline on mobile
+                start: 0,            // Start from the beginning
+                fs: 0,               // Disable fullscreen button
+                mute: 0              // Start with audio not muted
+            },
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+        // Unmute the audio when the player is ready
+        event.target.unMute();
+    }
+</script>
+
+<!-- Include the YouTube Iframe API script -->
+<script src="https://www.youtube.com/iframe_api"></script>
   </body>
+  
 </html>
